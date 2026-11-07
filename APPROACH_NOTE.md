@@ -1,0 +1,5 @@
+# Approach Note – DataStraw Smart Roster
+
+I modelled the roster as employee-to-brand and employee-to-process allocations, with operating rules attached to each brand/process pair. This separates client operating calendars from employee-specific weekly offs, leave and availability. The scheduler evaluates each operating day, filters ineligible resources, selects eligible employees in a deterministic workload-aware order and persists a critical conflict whenever minimum coverage cannot be met.
+
+The design uses Flask REST APIs and SQLAlchemy over SQLite for local development, with a React/Vite interface for operational views. The scheduling strategy is deliberately explainable and repeatable. Managers retain control over leave approval, backup selection, resource allocation and roster review because those choices can affect client service commitments. The current version is an assessment prototype; production release still needs authentication, audit history, PostgreSQL configuration, deployment and broader integration testing.
